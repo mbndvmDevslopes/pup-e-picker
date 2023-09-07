@@ -2,12 +2,12 @@
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 
-export const FunctionalSection = () => {
+export const FunctionalSection = ({ children }: { children: ReactNode }) => {
   return (
     <section id="main-section">
       <div className="container-header">
         <div className="container-label">Dogs: </div>
-        <Link to={"/class"} className="btn">
+        <Link to={'/class'} className="btn">
           Change to Class
         </Link>
         <div className="selectors">
@@ -25,10 +25,7 @@ export const FunctionalSection = () => {
           </div>
         </div>
       </div>
-      <div className="content-container">
-
-        {/* functionalDogs here using react children*/}
-{/*         FunctionalCreateDogForm here usinng react children*/}      </div>
+      <div className="content-container">{children}</div>
     </section>
   );
 };

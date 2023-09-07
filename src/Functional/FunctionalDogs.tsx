@@ -6,34 +6,29 @@ import { Dog } from "../types";
 
 
 // Right now these dogs are constant, but in reality we should be getting these from our server
-export const FunctionalDogs = ({allDogs}: {allDogs:Dog[]})=> {
-
-
-console.log(allDogs)
-
+export const FunctionalDogs = ({ allDogs }: { allDogs: Dog[] }) => {
   return (
     //  the "<> </>"" are called react fragments, it's like adding all the html inside
     // without adding an actual html element
     <>
-   {allDogs.map(doggie => (
+      {allDogs.map((doggie) => (
+        <DogCard
+          dog={{ ...doggie }}
+          key={doggie.id}
+          onTrashIconClick={() => {
+            alert('clicked trash');
+          }}
+          onHeartClick={() => {
+            alert('clicked heart');
+          }}
+          onEmptyHeartClick={() => {
+            alert('clicked empty heart');
+          }}
+          isLoading={false}
+        />
+      ))}
 
-     < DogCard
-      dog={{...doggie}} key = {doggie.id}
-      onTrashIconClick={() => {
-        alert("clicked trash");
-      }}
-      onHeartClick={() => {
-        alert("clicked heart");
-      }}
-      onEmptyHeartClick={() => {
-        alert("clicked empty heart");
-      }}
-      isLoading={false}
-    />
-    
-    ))} 
-    
-     {/*  <DogCard
+      {/*  <DogCard
         dog={{
           id: 1,
           image: dogPictures.BlueHeeler,
