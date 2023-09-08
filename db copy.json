@@ -22,6 +22,13 @@
       "id": 3
     },
     {
+      "name": "Elise",
+      "image": "/assets/blue-heeler.png",
+      "description": "mid VGA neural brr Cambridgeshire Technetium deposit",
+      "isFavorite": true,
+      "id": 4
+    },
+    {
       "name": "Destinee",
       "image": "/assets/cowardly.png",
       "description": "implement North Directives towards orchid broadly Tasty",
@@ -29,18 +36,39 @@
       "id": 5
     },
     {
+      "name": "Darius",
+      "image": "/assets/boxer.png",
+      "description": "Blues Classical neque Fundamental foreground USB Gasoline",
+      "isFavorite": false,
+      "id": 6
+    },
+    {
+      "name": "Adolfo",
+      "image": "/assets/corgi.png",
+      "description": "killer global Paradigm Alaska Folk Mobility Martin",
+      "isFavorite": true,
+      "id": 7
+    },
+    {
       "name": "Marcellus",
       "image": "/assets/corgi.png",
       "description": "Plastic Audi hm if Fiat",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 8
     },
     {
       "name": "Lexi",
       "image": "/assets/boxer.png",
       "description": "bah Borders failing Strategist barrage transgender Specialist",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 9
+    },
+    {
+      "name": "Matt",
+      "image": "/assets/chihuahua.avif",
+      "description": "Taka Pop Arkansas Cab Assistant",
+      "isFavorite": true,
+      "id": 10
     },
     {
       "name": "Brody",
@@ -60,14 +88,14 @@
       "name": "Estelle",
       "image": "/assets/blue-heeler.png",
       "description": "Infrastructure married Internal Directives Diesel",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 13
     },
     {
       "name": "Charity",
       "image": "/assets/cowardly.png",
       "description": "invoice granular Customer West West or compress SMTP",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 14
     },
     {
@@ -104,20 +132,6 @@
       "description": "Account purple West overriding Dam illo markets",
       "isFavorite": true,
       "id": 19
-    },
-    {
-      "name": "Chippy",
-      "description": "Chippy loves chipmunks",
-      "image": "/assets/blue-heeler.png",
-      "isFavorite": false,
-      "id": 20
-    },
-    {
-      "name": "corgi",
-      "description": "ggfff",
-      "image": "/assets/dalmation.png",
-      "isFavorite": false,
-      "id": 21
     }
   ]
 }

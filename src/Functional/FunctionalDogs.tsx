@@ -4,9 +4,18 @@ import { DogCard } from "../Shared/DogCard";
 import { dogPictures } from "../dog-pictures";
 import { Dog } from "../types";
 
-
 // Right now these dogs are constant, but in reality we should be getting these from our server
-export const FunctionalDogs = ({ allDogs }: { allDogs: Dog[] }) => {
+export const FunctionalDogs = ({
+  allDogs,
+  updateDog,
+  deleteDog,
+  isLoading,
+}: {
+  allDogs: Dog[];
+  updateDog: (id: number, isFav: boolean) => void;
+  deleteDog: (id: number) => void;
+  isLoading: boolean;
+}) => {
   return (
     //  the "<> </>"" are called react fragments, it's like adding all the html inside
     // without adding an actual html element
@@ -16,13 +25,15 @@ export const FunctionalDogs = ({ allDogs }: { allDogs: Dog[] }) => {
           dog={{ ...doggie }}
           key={doggie.id}
           onTrashIconClick={() => {
-            alert('clicked trash');
+            deleteDog(doggie.id);
           }}
           onHeartClick={() => {
-            alert('clicked heart');
+            updateDog(doggie.id, false);
+            //update isFavorite to false
           }}
           onEmptyHeartClick={() => {
-            alert('clicked empty heart');
+            //updateisFavorite to true
+            updateDog(doggie.id, true);
           }}
           isLoading={false}
         />
