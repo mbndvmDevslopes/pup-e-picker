@@ -9,12 +9,16 @@ import toast from 'react-hot-toast';
 
 export function FunctionalApp() {
   const [allDogs, setAllDogs] = useState<Dog[]>([]);
-  const [favDogs, setFavDogs] = useState<Dog[]>([]);
-  const [unFavDogs, setUnFavDogs] = useState<Dog[]>([]);
+  const [filteredDogs, setFilteredDogs] = useState<Dog[]>([]);
+
   const [isLoading, setIsLoading] = useState(false);
-  const [isActive, setIsActive] = useState(false);
+  const [isFavActive, setIsFavActive] = useState(false);
+  const [isUnFavActive, setIsUnFavActive] = useState(false);
+
+  const [isCreateDogActive, setIsCreateDogActive] = useState(false);
 
   const refetchData = () => {
+    console.log();
     setIsLoading(true);
     return Requests.getAllDogs()
       .then((dogs) => {
@@ -29,20 +33,34 @@ export function FunctionalApp() {
     });
   }, []);
 
-  /* const favoriteDogs = allDogs.filter((dog) => dog.isFavorite===true);
-  setFavDogs(favoriteDogs)
-  console.log(favDogs)
- */
   const updateDog = (id: number, isFav: boolean) => {
     setIsLoading(true);
-    Requests.updateDog(id, isFav).finally(() => {
-      refetchData();
-    });
+    Requests.updateDog(id, isFav)
+      .then((updatedDog) => {
+        // Update the allDogs list with the updated dog
+        setAllDogs((prevDogs) => {
+          const updatedDogs = prevDogs.map((dog) =>
+            dog.id === updatedDog.id ? updatedDog : dog
+          );
+          return updatedDogs;
+        });
+      })
+      .finally(() => {
+        refetchData();
+        setIsLoading(false);
+      });
   };
 
   const deleteDog = (id: number) => {
     setIsLoading(true);
-    Requests.deleteDog(id).finally(() => refetchData());
+    Requests.deleteDog(id)
+      .then(() => {
+        setAllDogs((prevDogs) => prevDogs.filter((dog) => dog.id !== id));
+      })
+      .finally(() => {
+        refetchData();
+        setIsLoading(false);
+      });
   };
 
   const createDog = (dog: Omit<Dog, 'id'>) => {
@@ -57,14 +75,31 @@ export function FunctionalApp() {
       <header>
         <h1>pup-e-picker (Functional)</h1>
       </header>
-      <FunctionalSection>
-        <FunctionalDogs
-          allDogs={allDogs}
-          deleteDog={deleteDog}
-          updateDog={updateDog}
-          isLoading={isLoading}
-        />
-        <FunctionalCreateDogForm createDog={createDog} isLoading={isLoading} />
+      <FunctionalSection
+        setIsFavActive={setIsFavActive}
+        setIsUnFavActive={setIsUnFavActive}
+        setIsCreateDogActive={setIsCreateDogActive}
+        isFavActive={isFavActive}
+        isUnFavActive={isUnFavActive}
+        isCreateDogActive={isCreateDogActive}
+        allDogs={allDogs}
+        setFilteredDogs={setFilteredDogs}
+      >
+        {!isCreateDogActive && (
+          <FunctionalDogs
+            allDogs={allDogs}
+            deleteDog={deleteDog}
+            updateDog={updateDog}
+            isLoading={isLoading}
+            filteredDogs={filteredDogs}
+          />
+        )}
+        {isCreateDogActive && (
+          <FunctionalCreateDogForm
+            createDog={createDog}
+            isLoading={isLoading}
+          />
+        )}
       </FunctionalSection>
     </div>
   );

@@ -12,13 +12,22 @@ export const FunctionalCreateDogForm = ({
   createDog: (dog: Omit<Dog, 'id'>) => void;
   isLoading: boolean;
 }) => {
-  //const [dogObj, setDogObj] = useState<Dog | null>(null);
+
   const [dogObj, setDogObj] = useState<Omit<Dog, 'id'>>({
     name: '',
     description: '',
     image: defaultSelectedImage,
     isFavorite: false,
   });
+  const resetForm = () => {
+    setDogObj({
+      name: '',
+      description: '',
+      image: defaultSelectedImage,
+      isFavorite: false,
+    });
+  };
+
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -33,6 +42,7 @@ export const FunctionalCreateDogForm = ({
       onSubmit={(e) => {
         e.preventDefault();
         createDog(dogObj);
+        resetForm();
       }}
     >
       <h4>Create a New Dog</h4>

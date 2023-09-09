@@ -10,115 +10,55 @@ export const FunctionalDogs = ({
   updateDog,
   deleteDog,
   isLoading,
+  filteredDogs,
 }: {
   allDogs: Dog[];
   updateDog: (id: number, isFav: boolean) => void;
   deleteDog: (id: number) => void;
   isLoading: boolean;
+  filteredDogs: Dog[];
 }) => {
   return (
     //  the "<> </>"" are called react fragments, it's like adding all the html inside
     // without adding an actual html element
     <>
-      {allDogs.map((doggie) => (
-        <DogCard
-          dog={{ ...doggie }}
-          key={doggie.id}
-          onTrashIconClick={() => {
-            deleteDog(doggie.id);
-          }}
-          onHeartClick={() => {
-            updateDog(doggie.id, false);
-            //update isFavorite to false
-          }}
-          onEmptyHeartClick={() => {
-            //updateisFavorite to true
-            updateDog(doggie.id, true);
-          }}
-          isLoading={false}
-        />
-      ))}
-
-      {/*  <DogCard
-        dog={{
-          id: 1,
-          image: dogPictures.BlueHeeler,
-          description: "Example Description",
-          isFavorite: false,
-          name: "Cute Blue Heeler",
-        }}
-        key={1}
-        onTrashIconClick={() => {
-          alert("clicked trash");
-        }}
-        onHeartClick={() => {
-          alert("clicked heart");
-        }}
-        onEmptyHeartClick={() => {
-          alert("clicked empty heart");
-        }}
-        isLoading={false}
-      />
-      <DogCard
-        dog={{
-          id: 2,
-          image: dogPictures.Boxer,
-          description: "Example Description",
-          isFavorite: false,
-          name: "Cute Boxer",
-        }}
-        key={2}
-        onTrashIconClick={() => {
-          alert("clicked trash");
-        }}
-        onHeartClick={() => {
-          alert("clicked heart");
-        }}
-        onEmptyHeartClick={() => {
-          alert("clicked empty heart");
-        }}
-        isLoading={false}
-      />
-      <DogCard
-        dog={{
-          id: 3,
-          image: dogPictures.Chihuahua,
-          description: "Example Description",
-          isFavorite: false,
-          name: "Cute Chihuahua",
-        }}
-        key={3}
-        onTrashIconClick={() => {
-          alert("clicked trash");
-        }}
-        onHeartClick={() => {
-          alert("clicked heart");
-        }}
-        onEmptyHeartClick={() => {
-          alert("clicked empty heart");
-        }}
-        isLoading={false}
-      />
-      <DogCard
-        dog={{
-          id: 4,
-          image: dogPictures.Corgi,
-          description: "Example Description",
-          isFavorite: false,
-          name: "Cute Corgi",
-        }}
-        key={4}
-        onTrashIconClick={() => {
-          alert("clicked trash");
-        }}
-        onHeartClick={() => {
-          alert("clicked heart");
-        }}
-        onEmptyHeartClick={() => {
-          alert("clicked empty heart");
-        }}
-        isLoading={false}
-      /> */}
+      {filteredDogs.length > 1
+        ? filteredDogs.map((doggie: Dog) => (
+            <DogCard
+              dog={{ ...doggie }}
+              key={doggie.id}
+              onTrashIconClick={() => {
+                deleteDog(doggie.id);
+              }}
+              onHeartClick={() => {
+                updateDog(doggie.id, false);
+                //update isFavorite to false
+              }}
+              onEmptyHeartClick={() => {
+                //updateisFavorite to true
+                updateDog(doggie.id, true);
+              }}
+              isLoading={isLoading}
+            />
+          ))
+        : allDogs.map((doggie: Dog) => (
+            <DogCard
+              dog={{ ...doggie }}
+              key={doggie.id}
+              onTrashIconClick={() => {
+                deleteDog(doggie.id);
+              }}
+              onHeartClick={() => {
+                updateDog(doggie.id, false);
+                //update isFavorite to false
+              }}
+              onEmptyHeartClick={() => {
+                //updateisFavorite to true
+                updateDog(doggie.id, true);
+              }}
+              isLoading={isLoading}
+            />
+          ))}
     </>
   );
 };

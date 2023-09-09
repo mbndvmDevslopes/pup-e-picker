@@ -11,7 +11,7 @@
       "name": "Glenda",
       "image": "/assets/boxer.png",
       "description": "afterwards DRAM TCP Tennessee blue blue Convertible",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 2
     },
     {
@@ -22,102 +22,53 @@
       "id": 3
     },
     {
-      "name": "Destinee",
-      "image": "/assets/cowardly.png",
-      "description": "implement North Directives towards orchid broadly Tasty",
-      "isFavorite": true,
-      "id": 5
-    },
-    {
-      "name": "Marcellus",
-      "image": "/assets/corgi.png",
-      "description": "Plastic Audi hm if Fiat",
-      "isFavorite": true,
-      "id": 8
-    },
-    {
-      "name": "Lexi",
-      "image": "/assets/boxer.png",
-      "description": "bah Borders failing Strategist barrage transgender Specialist",
-      "isFavorite": true,
-      "id": 9
-    },
-    {
       "name": "Brody",
       "image": "/assets/dalmation.png",
       "description": "Polonium woot Outdoors leading Hybrid",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 11
     },
     {
       "name": "Hassie",
       "image": "/assets/blue-heeler.png",
       "description": "kelvin Granite Martin auxiliary Audi overriding Intelligent",
-      "isFavorite": true,
-      "id": 12
-    },
-    {
-      "name": "Estelle",
-      "image": "/assets/blue-heeler.png",
-      "description": "Infrastructure married Internal Directives Diesel",
       "isFavorite": false,
-      "id": 13
+      "id": 12
     },
     {
       "name": "Charity",
       "image": "/assets/cowardly.png",
       "description": "invoice granular Customer West West or compress SMTP",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 14
-    },
-    {
-      "name": "Maximus",
-      "image": "/assets/boxer.png",
-      "description": "Electronics Daryl West feed Tuna cable silver",
-      "isFavorite": true,
-      "id": 15
     },
     {
       "name": "Dortha",
       "image": "/assets/dalmation.png",
       "description": "Avon calculate HDD New green mobile deploy Hawaii",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 16
     },
     {
       "name": "Berry",
       "image": "/assets/blue-heeler.png",
       "description": "haptic male Central Cisgender Ferrari productivity invoice Loan",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 17
     },
     {
       "name": "Kathleen",
       "image": "/assets/corgi.png",
       "description": "Tuna Plastic Kwacha Southwest Rustic Gallium incremental on",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 18
     },
     {
       "name": "Austin",
       "image": "/assets/chihuahua.avif",
       "description": "Account purple West overriding Dam illo markets",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 19
-    },
-    {
-      "name": "Chippy",
-      "description": "Chippy loves chipmunks",
-      "image": "/assets/blue-heeler.png",
-      "isFavorite": false,
-      "id": 20
-    },
-    {
-      "name": "corgi",
-      "description": "ggfff",
-      "image": "/assets/dalmation.png",
-      "isFavorite": false,
-      "id": 21
     }
   ]
 }
