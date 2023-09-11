@@ -72,7 +72,7 @@ export class ClassCreateDogForm extends Component<CreateDogFormProps> {
           cols={80}
           rows={10}
           onChange={this.handleInputChange}
-          disabled={false}
+          disabled={this.props.isLoading}
           required
           value={dogObj.description}
         />
