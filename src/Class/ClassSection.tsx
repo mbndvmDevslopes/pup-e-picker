@@ -89,7 +89,6 @@ export class ClassSection extends Component<ClassSectionProps> {
             <div
               className={isCreateDogActive ? `selector active` : 'selector'}
               onClick={() => {
-                console.log(isCreateDogActive);
                 updateIsCreateDogActive(!isCreateDogActive);
                 updateIsFavActive(false);
                 updateIsUnFavActive(false);

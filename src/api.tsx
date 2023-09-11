@@ -19,7 +19,6 @@ export const Requests = {
       },
     });
     const json = await response.json();
-    return console.log(json);
   },
 
   // should delete a dog from the database
