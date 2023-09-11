@@ -12,10 +12,7 @@ type ClassDogsProps = {
   filteredDogs: Dog[];
 };
 
-/* deleteDog={this.deleteDog}
-updateDog={this.updateDog}
-isLoading={isLoading}
-filteredDogs={filteredDogs} */
+
 export class ClassDogs extends Component<ClassDogsProps> {
   render() {
     const { filteredDogs, deleteDog, updateDog, isLoading, allDogs } =
