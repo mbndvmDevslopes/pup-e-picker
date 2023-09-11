@@ -1,74 +1,109 @@
 {
   "dogs": [
     {
-      "name": "Lempi",
-      "image": "/assets/boxer.png",
-      "description": "Direct Representative bypassing Sao whereas Principal uphold Central",
+      "name": "Robyn",
+      "image": "/assets/corgi.png",
+      "description": "Chair Recumbent Cambridgeshire evenly eek Country Unbranded autem",
       "isFavorite": true,
-      "id": 0
+      "id": 1
     },
     {
-      "name": "Glenda",
-      "image": "/assets/boxer.png",
-      "description": "afterwards DRAM TCP Tennessee blue blue Convertible",
-      "isFavorite": true,
-      "id": 2
-    },
-    {
-      "name": "Valentina",
-      "image": "/assets/blue-heeler.png",
-      "description": "Electric Rustic synthesizing Electric Officer for CSS Generic",
-      "isFavorite": true,
+      "name": "Cortez",
+      "image": "/assets/chihuahua.avif",
+      "description": "Sleek Vermont Blues users Account",
+      "isFavorite": false,
       "id": 3
     },
     {
-      "name": "Brody",
-      "image": "/assets/dalmation.png",
-      "description": "Polonium woot Outdoors leading Hybrid",
+      "name": "Isabelle",
+      "image": "/assets/blue-heeler.png",
+      "description": "tan Hat payment Bedfordshire Massachusetts access apud",
       "isFavorite": false,
+      "id": 4
+    },
+    {
+      "name": "Ivory",
+      "image": "/assets/corgi.png",
+      "description": "Liberia female optical fuchsia female purple application Colombian",
+      "isFavorite": false,
+      "id": 6
+    },
+    {
+      "name": "Layne",
+      "image": "/assets/dalmation.png",
+      "description": "redundant lavender female so payment",
+      "isFavorite": false,
+      "id": 7
+    },
+    {
+      "name": "Otha",
+      "image": "/assets/blue-heeler.png",
+      "description": "marriage evolve man Electronics user saepe Carolina",
+      "isFavorite": true,
+      "id": 8
+    },
+    {
+      "name": "Russ",
+      "image": "/assets/dalmation.png",
+      "description": "Liaison Soft second extranet during HTTP guitarist Steel",
+      "isFavorite": true,
+      "id": 10
+    },
+    {
+      "name": "Justice",
+      "image": "/assets/chihuahua.avif",
+      "description": "Cloned quantify awe payment and Marketing lavender World",
+      "isFavorite": true,
       "id": 11
     },
     {
-      "name": "Hassie",
-      "image": "/assets/blue-heeler.png",
-      "description": "kelvin Granite Martin auxiliary Audi overriding Intelligent",
-      "isFavorite": false,
-      "id": 12
+      "name": "Verona",
+      "image": "/assets/boxer.png",
+      "description": "Account Rustic Gasoline Division backing Concrete Springs",
+      "isFavorite": true,
+      "id": 13
     },
     {
-      "name": "Charity",
-      "image": "/assets/cowardly.png",
-      "description": "invoice granular Customer West West or compress SMTP",
-      "isFavorite": false,
-      "id": 14
-    },
-    {
-      "name": "Dortha",
+      "name": "Kyle",
       "image": "/assets/dalmation.png",
-      "description": "Avon calculate HDD New green mobile deploy Hawaii",
+      "description": "Northeast synthesize monotheism Northwest to Northeast Kids Southwest",
+      "isFavorite": false,
+      "id": 15
+    },
+    {
+      "name": "Anastasia",
+      "image": "/assets/blue-heeler.png",
+      "description": "Granite Games admirable Fresh Latin Escudo red AI",
       "isFavorite": true,
       "id": 16
     },
     {
-      "name": "Berry",
+      "name": "Christina",
       "image": "/assets/blue-heeler.png",
-      "description": "haptic male Central Cisgender Ferrari productivity invoice Loan",
-      "isFavorite": true,
+      "description": "hacking Horizontal jealously Northwest Bronze mind wireless Steel",
+      "isFavorite": false,
       "id": 17
     },
     {
-      "name": "Kathleen",
-      "image": "/assets/corgi.png",
-      "description": "Tuna Plastic Kwacha Southwest Rustic Gallium incremental on",
-      "isFavorite": true,
+      "name": "Russel",
+      "image": "/assets/boxer.png",
+      "description": "access oof Sausages Southeast Gender ack parse evolve",
+      "isFavorite": false,
       "id": 18
     },
     {
-      "name": "Austin",
-      "image": "/assets/chihuahua.avif",
-      "description": "Account purple West overriding Dam illo markets",
-      "isFavorite": false,
+      "name": "Bridget",
+      "image": "/assets/blue-heeler.png",
+      "description": "Kids Gasoline Assurance optical partially",
+      "isFavorite": true,
       "id": 19
+    },
+    {
+      "name": "test",
+      "description": "cool dog",
+      "isFavorite": false,
+      "image": "/assets/blue-heeler.png",
+      "id": 20
     }
   ]
 }

@@ -1,8 +1,5 @@
-import { useState, useEffect } from "react";
-
-import { DogCard } from "../Shared/DogCard";
-import { dogPictures } from "../dog-pictures";
-import { Dog } from "../types";
+import { DogCard } from '../Shared/DogCard';
+import { Dog } from '../types';
 
 // Right now these dogs are constant, but in reality we should be getting these from our server
 export const FunctionalDogs = ({

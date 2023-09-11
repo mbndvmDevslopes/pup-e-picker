@@ -10,11 +10,9 @@ import toast from 'react-hot-toast';
 export function FunctionalApp() {
   const [allDogs, setAllDogs] = useState<Dog[]>([]);
   const [filteredDogs, setFilteredDogs] = useState<Dog[]>([]);
-
   const [isLoading, setIsLoading] = useState(false);
   const [isFavActive, setIsFavActive] = useState(false);
   const [isUnFavActive, setIsUnFavActive] = useState(false);
-
   const [isCreateDogActive, setIsCreateDogActive] = useState(false);
 
   const refetchData = () => {
@@ -35,32 +33,18 @@ export function FunctionalApp() {
 
   const updateDog = (id: number, isFav: boolean) => {
     setIsLoading(true);
-    Requests.updateDog(id, isFav)
-      .then((updatedDog) => {
-        // Update the allDogs list with the updated dog
-        setAllDogs((prevDogs) => {
-          const updatedDogs = prevDogs.map((dog) =>
-            dog.id === updatedDog.id ? updatedDog : dog
-          );
-          return updatedDogs;
-        });
-      })
-      .finally(() => {
-        refetchData();
-        setIsLoading(false);
-      });
+    Requests.updateDog(id, isFav).finally(() => {
+      refetchData();
+      setIsLoading(false);
+    });
   };
 
   const deleteDog = (id: number) => {
     setIsLoading(true);
-    Requests.deleteDog(id)
-      .then(() => {
-        setAllDogs((prevDogs) => prevDogs.filter((dog) => dog.id !== id));
-      })
-      .finally(() => {
-        refetchData();
-        setIsLoading(false);
-      });
+    Requests.deleteDog(id).finally(() => {
+      refetchData();
+      setIsLoading(false);
+    });
   };
 
   const createDog = (dog: Omit<Dog, 'id'>) => {

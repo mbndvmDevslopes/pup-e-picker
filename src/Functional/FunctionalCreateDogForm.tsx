@@ -12,7 +12,6 @@ export const FunctionalCreateDogForm = ({
   createDog: (dog: Omit<Dog, 'id'>) => void;
   isLoading: boolean;
 }) => {
-
   const [dogObj, setDogObj] = useState<Omit<Dog, 'id'>>({
     name: '',
     description: '',

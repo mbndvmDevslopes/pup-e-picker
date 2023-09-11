@@ -2,7 +2,7 @@
 import { ReactNode, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Dog } from '../types';
-import { dogPictures } from '../dog-pictures';
+
 type FunctionalSectionProps = {
   setIsFavActive: React.Dispatch<React.SetStateAction<boolean>>;
   setIsUnFavActive: React.Dispatch<React.SetStateAction<boolean>>;
@@ -55,17 +55,6 @@ export const FunctionalSection: React.FC<FunctionalSectionProps> = ({
     setFilteredDogs(displayedDogs);
   }, [isFavActive, isUnFavActive, allDogs]);
 
-  /*  const setFilter: () => void = () => {
-    if (isFavActive) {
-      setFilteredDogs(favDogs);
-    } else if (isUnFavActive) {
-      setFilteredDogs(unFavDogs);
-    } else {
-      setFilteredDogs([]);
-    }
-  };
-  /*  */
-
   return (
     <section id="main-section">
       <div className="container-header">
@@ -76,7 +65,7 @@ export const FunctionalSection: React.FC<FunctionalSectionProps> = ({
         <div className="selectors">
           {/* This should display the favorited count */}
           <div
-            className={isFavActive ? `selector active` : 'selector'}
+            className={isFavActive ? 'selector active' : 'selector'}
             onClick={() => {
               setIsFavActive(!isFavActive);
               setIsUnFavActive(false);
@@ -98,7 +87,7 @@ export const FunctionalSection: React.FC<FunctionalSectionProps> = ({
             unfavorited ( {unFavDogs.length} )
           </div>
           <div
-            className={isCreateDogActive ? `selector active` : 'selector'}
+            className={isCreateDogActive ? 'selector active' : 'selector'}
             onClick={() => {
               setIsCreateDogActive(!isCreateDogActive);
               setIsFavActive(false);

@@ -1,12 +1,57 @@
 // you can use `ReactNode` to add a type to the children prop
-import { Component, ReactNode } from "react";
-import { Link } from "react-router-dom";
+import { Component, ReactNode } from 'react';
+import { Link } from 'react-router-dom';
+import { Dog, isCreateDogActive, isFavActive, isUnFavActive } from '../types';
 
-type Children = {
+type ClassSectionProps = {
+  updateIsFavActive: (newState: isFavActive) => void;
+  updateIsUnFavActive: (newState: isUnFavActive) => void;
+  updateIsCreateDogActive: (newState: isCreateDogActive) => void;
+  isFavActive: isFavActive;
+  isUnFavActive: isUnFavActive;
+  isCreateDogActive: isCreateDogActive;
   children: ReactNode;
+  allDogs: Dog[];
+  updateFilteredDogs: (newState: Dog[]) => void;
 };
-export class ClassSection extends Component<Children> {
+
+export class ClassSection extends Component<ClassSectionProps> {
+  componentDidUpdate(prevProps: ClassSectionProps) {
+    if (
+      this.props.isFavActive !== prevProps.isFavActive ||
+      this.props.isUnFavActive !== prevProps.isUnFavActive ||
+      this.props.allDogs !== prevProps.allDogs
+    ) {
+      let displayedDogs = this.props.allDogs;
+
+      if (this.props.isFavActive) {
+        displayedDogs = this.props.allDogs.filter(
+          (dog) => dog.isFavorite === true
+        );
+      } else if (this.props.isUnFavActive) {
+        displayedDogs = this.props.allDogs.filter(
+          (dog) => dog.isFavorite === false
+        );
+      }
+
+      this.props.updateFilteredDogs(displayedDogs);
+    }
+  }
+
   render() {
+    const {
+      allDogs,
+      isUnFavActive,
+      isFavActive,
+      isCreateDogActive,
+      updateIsFavActive,
+      updateIsUnFavActive,
+      updateIsCreateDogActive,
+    } = this.props;
+
+    const unFavDogs = allDogs.filter((dog: Dog) => dog.isFavorite === false);
+    const favDogs = allDogs.filter((dog: Dog) => dog.isFavorite === true);
+
     return (
       <section id="main-section">
         <div className="container-header">
@@ -18,15 +63,38 @@ export class ClassSection extends Component<Children> {
 
           <div className="selectors">
             {/* This should display the favorited count */}
-            <div className={`selector`} onClick={() => {}}>
-              favorited ( 0 )
+            <div
+              className={isFavActive ? `selector active` : 'selector'}
+              onClick={() => {
+                updateIsFavActive(!isFavActive);
+
+                updateIsUnFavActive(false);
+                updateIsCreateDogActive(false);
+              }}
+            >
+              favorited ({favDogs.length})
             </div>
 
             {/* This should display the unfavorited count */}
-            <div className={`selector`} onClick={() => {}}>
-              unfavorited ( 0 )
+            <div
+              className={isUnFavActive ? 'selector active' : 'selector'}
+              onClick={() => {
+                updateIsUnFavActive(!isUnFavActive);
+                updateIsFavActive(false);
+                updateIsCreateDogActive(false);
+              }}
+            >
+              unfavorited ( {unFavDogs.length})
             </div>
-            <div className={`selector active`} onClick={() => {}}>
+            <div
+              className={isCreateDogActive ? `selector active` : 'selector'}
+              onClick={() => {
+                console.log(isCreateDogActive);
+                updateIsCreateDogActive(!isCreateDogActive);
+                updateIsFavActive(false);
+                updateIsUnFavActive(false);
+              }}
+            >
               create dog
             </div>
           </div>
