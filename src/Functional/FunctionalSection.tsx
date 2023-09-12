@@ -1,42 +1,30 @@
 // you can use this type for react children if you so choose
-import { ReactNode, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Dog } from '../types';
+import { ReactNode, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Dog } from "../types";
+import { ActiveTab } from "../types";
 
 type FunctionalSectionProps = {
-  setIsFavActive: React.Dispatch<React.SetStateAction<boolean>>;
-  setIsUnFavActive: React.Dispatch<React.SetStateAction<boolean>>;
-  setIsCreateDogActive: React.Dispatch<React.SetStateAction<boolean>>;
-  isFavActive: boolean;
-  isUnFavActive: boolean;
-  isCreateDogActive: boolean;
   children: ReactNode;
   allDogs: Dog[];
+  activeTab: ActiveTab;
+  setActiveTab: React.Dispatch<React.SetStateAction<ActiveTab>>;
 
   setFilteredDogs: React.Dispatch<React.SetStateAction<Dog[]>>;
 };
 
 export const FunctionalSection: React.FC<FunctionalSectionProps> = ({
   children,
-  setIsFavActive,
-  isFavActive,
-  isUnFavActive,
-  isCreateDogActive,
-  setIsUnFavActive,
-  setIsCreateDogActive,
   allDogs,
-
+  activeTab,
+  setActiveTab,
   setFilteredDogs,
 }: {
   children: ReactNode;
 
-  setIsFavActive: React.Dispatch<React.SetStateAction<boolean>>;
-  isFavActive: boolean;
-  isUnFavActive: boolean;
-  isCreateDogActive: boolean;
-  setIsUnFavActive: React.Dispatch<React.SetStateAction<boolean>>;
-  setIsCreateDogActive: React.Dispatch<React.SetStateAction<boolean>>;
   allDogs: Dog[];
+  activeTab: ActiveTab;
+  setActiveTab: React.Dispatch<React.SetStateAction<ActiveTab>>;
 
   setFilteredDogs: React.Dispatch<React.SetStateAction<Dog[]>>;
 }) => {
@@ -45,31 +33,31 @@ export const FunctionalSection: React.FC<FunctionalSectionProps> = ({
 
   useEffect(() => {
     let displayedDogs = allDogs;
-
-    if (isFavActive) {
-      displayedDogs = allDogs.filter((dog) => dog.isFavorite === true);
-    } else if (isUnFavActive) {
-      displayedDogs = allDogs.filter((dog) => dog.isFavorite === false);
-    }
-
+    displayedDogs = allDogs.filter((dog) => {
+      if (activeTab === "all-dogs") return true;
+      if (activeTab === "favorite-dogs") return dog.isFavorite;
+      if (activeTab === "unfavorite-dogs") return !dog.isFavorite;
+    });
     setFilteredDogs(displayedDogs);
-  }, [isFavActive, isUnFavActive, allDogs]);
+  }, [activeTab, allDogs]);
 
   return (
     <section id="main-section">
       <div className="container-header">
         <div className="container-label">Dogs: </div>
-        <Link to={'/class'} className="btn">
+        <Link to={"/class"} className="btn">
           Change to Class
         </Link>
         <div className="selectors">
           {/* This should display the favorited count */}
           <div
-            className={isFavActive ? 'selector active' : 'selector'}
+            className={
+              activeTab === "favorite-dogs" ? "selector active" : "selector"
+            }
             onClick={() => {
-              setIsFavActive(!isFavActive);
-              setIsUnFavActive(false);
-              setIsCreateDogActive(false);
+              activeTab === "favorite-dogs"
+                ? setActiveTab("all-dogs")
+                : setActiveTab("favorite-dogs");
             }}
           >
             favorited ( {favDogs.length} )
@@ -77,21 +65,25 @@ export const FunctionalSection: React.FC<FunctionalSectionProps> = ({
 
           {/* This should display the unfavorited count */}
           <div
-            className={isUnFavActive ? 'selector active' : 'selector'}
+            className={
+              activeTab === "unfavorite-dogs" ? "selector active" : "selector"
+            }
             onClick={() => {
-              setIsUnFavActive(!isUnFavActive);
-              setIsFavActive(false);
-              setIsCreateDogActive(false);
+              activeTab === "unfavorite-dogs"
+                ? setActiveTab("all-dogs")
+                : setActiveTab("unfavorite-dogs");
             }}
           >
             unfavorited ( {unFavDogs.length} )
           </div>
           <div
-            className={isCreateDogActive ? 'selector active' : 'selector'}
+            className={
+              activeTab === "create-dog-form" ? "selector active" : "selector"
+            }
             onClick={() => {
-              setIsCreateDogActive(!isCreateDogActive);
-              setIsFavActive(false);
-              setIsUnFavActive(false);
+              activeTab === "create-dog-form"
+                ? setActiveTab("all-dogs")
+                : setActiveTab("create-dog-form");
             }}
           >
             create dog

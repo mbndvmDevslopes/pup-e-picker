@@ -1,6 +1,6 @@
-import { dogPictures } from '../dog-pictures';
-import { Dog } from '../types';
-import { useState } from 'react';
+import { dogPictures } from "../dog-pictures";
+import { Dog } from "../types";
+import { useState } from "react";
 
 // use this as your default selected image
 const defaultSelectedImage = dogPictures.BlueHeeler;
@@ -9,19 +9,19 @@ export const FunctionalCreateDogForm = ({
   createDog,
   isLoading,
 }: {
-  createDog: (dog: Omit<Dog, 'id'>) => void;
+  createDog: (dog: Omit<Dog, "id">) => void;
   isLoading: boolean;
 }) => {
-  const [dogObj, setDogObj] = useState<Omit<Dog, 'id'>>({
-    name: '',
-    description: '',
+  const [dogObj, setDogObj] = useState<Omit<Dog, "id">>({
+    name: "",
+    description: "",
     image: defaultSelectedImage,
     isFavorite: false,
   });
   const resetForm = () => {
     setDogObj({
-      name: '',
-      description: '',
+      name: "",
+      description: "",
       image: defaultSelectedImage,
       isFavorite: false,
     });

@@ -1,22 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-import { FunctionalCreateDogForm } from './FunctionalCreateDogForm';
-import { FunctionalDogs } from './FunctionalDogs';
-import { FunctionalSection } from './FunctionalSection';
-import { Dog } from '../types';
-import { Requests } from '../api';
-import toast from 'react-hot-toast';
+import { FunctionalCreateDogForm } from "./FunctionalCreateDogForm";
+import { FunctionalDogs } from "./FunctionalDogs";
+import { FunctionalSection } from "./FunctionalSection";
+import { Dog } from "../types";
+import { Requests } from "../api";
+import toast from "react-hot-toast";
+import { ActiveTab } from "../types";
 
 export function FunctionalApp() {
   const [allDogs, setAllDogs] = useState<Dog[]>([]);
   const [filteredDogs, setFilteredDogs] = useState<Dog[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [isFavActive, setIsFavActive] = useState(false);
-  const [isUnFavActive, setIsUnFavActive] = useState(false);
-  const [isCreateDogActive, setIsCreateDogActive] = useState(false);
+  const [activeTab, setActiveTab] = useState<ActiveTab>("all-dogs");
 
   const refetchData = () => {
-    console.log();
     setIsLoading(true);
     return Requests.getAllDogs()
       .then((dogs) => {
@@ -47,38 +45,33 @@ export function FunctionalApp() {
     });
   };
 
-  const createDog = (dog: Omit<Dog, 'id'>) => {
+  const createDog = (dog: Omit<Dog, "id">) => {
     setIsLoading(true);
     Requests.postDog(dog)
       .finally(() => refetchData())
-      .then(() => toast.success('A dog is created'));
+      .then(() => toast.success("A dog is created"));
   };
 
   return (
-    <div className="App" style={{ backgroundColor: 'skyblue' }}>
+    <div className="App" style={{ backgroundColor: "skyblue" }}>
       <header>
         <h1>pup-e-picker (Functional)</h1>
       </header>
       <FunctionalSection
-        setIsFavActive={setIsFavActive}
-        setIsUnFavActive={setIsUnFavActive}
-        setIsCreateDogActive={setIsCreateDogActive}
-        isFavActive={isFavActive}
-        isUnFavActive={isUnFavActive}
-        isCreateDogActive={isCreateDogActive}
         allDogs={allDogs}
         setFilteredDogs={setFilteredDogs}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
       >
-        {!isCreateDogActive && (
+        {activeTab !== "create-dog-form" && (
           <FunctionalDogs
-            allDogs={allDogs}
             deleteDog={deleteDog}
             updateDog={updateDog}
             isLoading={isLoading}
             filteredDogs={filteredDogs}
           />
         )}
-        {isCreateDogActive && (
+        {activeTab === "create-dog-form" && (
           <FunctionalCreateDogForm
             createDog={createDog}
             isLoading={isLoading}

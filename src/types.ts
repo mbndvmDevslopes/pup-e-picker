@@ -7,7 +7,10 @@ export type Dog = {
   isFavorite: boolean;
 };
 
-export type isLoading = boolean;
-export type isFavActive = boolean;
-export type isUnFavActive = boolean;
-export type isCreateDogActive = boolean;
+export type ActiveTab =
+  | "all-dogs"
+  | "favorite-dogs"
+  | "unfavorite-dogs"
+  | "create-dog-form";
+
+export type IsLoading = boolean;

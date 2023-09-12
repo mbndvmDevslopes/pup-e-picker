@@ -1,12 +1,12 @@
-import { Component } from 'react';
-import { dogPictures } from '../dog-pictures';
-import { Dog } from '../types';
+import { Component } from "react";
+import { dogPictures } from "../dog-pictures";
+import { Dog } from "../types";
 
 type State = {
-  dogObj: Omit<Dog, 'id'>;
+  dogObj: Omit<Dog, "id">;
 };
 type CreateDogFormProps = {
-  createDog: (dogObj: Omit<Dog, 'id'>) => void;
+  createDog: (dogObj: Omit<Dog, "id">) => void;
   isLoading: boolean;
 };
 
@@ -15,8 +15,8 @@ export class ClassCreateDogForm extends Component<CreateDogFormProps> {
 
   state: State = {
     dogObj: {
-      name: '',
-      description: '',
+      name: "",
+      description: "",
       isFavorite: false,
       image: this.defaultSelectedImage,
     },
@@ -25,8 +25,8 @@ export class ClassCreateDogForm extends Component<CreateDogFormProps> {
   resetForm = () => {
     this.setState({
       dogObj: {
-        name: '',
-        description: '',
+        name: "",
+        description: "",
         image: this.defaultSelectedImage,
         isFavorite: false,
       },

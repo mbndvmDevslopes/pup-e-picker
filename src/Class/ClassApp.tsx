@@ -1,24 +1,17 @@
-import { Component } from 'react';
-import { ClassSection } from './ClassSection';
-import { ClassDogs } from './ClassDogs';
-import { ClassCreateDogForm } from './ClassCreateDogForm';
-import { Requests } from '../api';
-import {
-  Dog,
-  isCreateDogActive,
-  isLoading,
-  isFavActive,
-  isUnFavActive,
-} from '../types';
-import toast from 'react-hot-toast';
+import { Component } from "react";
+import { ClassSection } from "./ClassSection";
+import { ClassDogs } from "./ClassDogs";
+import { ClassCreateDogForm } from "./ClassCreateDogForm";
+import { Requests } from "../api";
+import { Dog, IsLoading, ActiveTab } from "../types";
+
+import toast from "react-hot-toast";
 
 type State = {
   allDogs: Dog[];
   filteredDogs: Dog[];
-  isLoading: isLoading;
-  isFavActive: isFavActive;
-  isUnFavActive: isUnFavActive;
-  isCreateDogActive: isCreateDogActive;
+  isLoading: IsLoading;
+  activeTab: ActiveTab;
 };
 
 export class ClassApp extends Component<Record<string, never>, State> {
@@ -26,9 +19,7 @@ export class ClassApp extends Component<Record<string, never>, State> {
     allDogs: [],
     isLoading: false,
     filteredDogs: [],
-    isFavActive: false,
-    isUnFavActive: false,
-    isCreateDogActive: false,
+    activeTab: "all-dogs",
   };
 
   refetchData = () => {
@@ -56,50 +47,39 @@ export class ClassApp extends Component<Record<string, never>, State> {
     });
   };
 
-  createDog = (dog: Omit<Dog, 'id'>) => {
+  createDog = (dog: Omit<Dog, "id">) => {
     this.setState({ isLoading: true });
     Requests.postDog(dog)
-      .finally(() => this.refetchData())
-      .then(() => toast.success('A dog is created'));
+      .then(() => toast.success("A dog is created"))
+      .finally(() => this.refetchData());
   };
 
-  updateIsFavActive = (newState: isFavActive) => {
-    this.setState({ isFavActive: newState });
-  };
-  updateIsUnFavActive = (newState: isUnFavActive) => {
-    this.setState({ isUnFavActive: newState });
-  };
-  updateIsCreateDogActive = (newState: isCreateDogActive) => {
-    this.setState({ isCreateDogActive: newState });
-  };
   updateFilteredDogs = (newState: Dog[]) => {
     this.setState({ filteredDogs: newState });
+  };
+  updateActiveTab = (newState: ActiveTab) => {
+    this.setState({ activeTab: newState });
   };
   render() {
     const {
       allDogs,
-      isFavActive,
-      isUnFavActive,
-      isCreateDogActive,
+
       isLoading,
       filteredDogs,
+      activeTab,
     } = this.state;
     return (
-      <div className="App" style={{ backgroundColor: 'goldenrod' }}>
+      <div className="App" style={{ backgroundColor: "goldenrod" }}>
         <header>
           <h1>pup-e-picker (Class Version)</h1>
         </header>
         <ClassSection
-          updateIsFavActive={this.updateIsFavActive}
-          updateIsUnFavActive={this.updateIsUnFavActive}
-          updateIsCreateDogActive={this.updateIsCreateDogActive}
-          isFavActive={isFavActive}
-          isUnFavActive={isUnFavActive}
-          isCreateDogActive={isCreateDogActive}
           allDogs={allDogs}
           updateFilteredDogs={this.updateFilteredDogs}
+          activeTab={activeTab}
+          updateActiveTab={this.updateActiveTab}
         >
-          {!isCreateDogActive && (
+          {activeTab !== "create-dog-form" && (
             <ClassDogs
               allDogs={allDogs}
               deleteDog={this.deleteDog}
@@ -108,7 +88,7 @@ export class ClassApp extends Component<Record<string, never>, State> {
               filteredDogs={filteredDogs}
             />
           )}
-          {isCreateDogActive && (
+          {activeTab === "create-dog-form" && (
             <ClassCreateDogForm
               createDog={this.createDog}
               isLoading={isLoading}
