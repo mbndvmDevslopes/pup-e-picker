@@ -3,14 +3,12 @@ import { Dog } from "../types";
 
 // Right now these dogs are constant, but in reality we should be getting these from our server
 export const FunctionalDogs = ({
-  /*   allDogs,
-   */ updateDog,
+   updateDog,
   deleteDog,
   isLoading,
   filteredDogs,
 }: {
-  /*   allDogs: Dog[];
-   */ updateDog: (id: number, isFav: boolean) => void;
+  updateDog: (id: number, isFav: boolean) => void;
   deleteDog: (id: number) => void;
   isLoading: boolean;
   filteredDogs: Dog[];

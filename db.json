@@ -1,1 +1,130 @@
-{"dogs":[{"name":"Jamie","image":"/assets/dalmation.png","description":"World National Mouse Towels South Neutrois primary Gasoline","isFavorite":false,"id":0},{"name":"Brad","image":"/assets/blue-heeler.png","description":"cultivate capacitor Hybrid metrics inactivate","isFavorite":false,"id":1},{"name":"Frederic","image":"/assets/blue-heeler.png","description":"pixel Elmer Sports Trans Hills","isFavorite":false,"id":2},{"name":"Rosa","image":"/assets/cowardly.png","description":"Robert Egypt East East Iridium Latin Illinois embrace","isFavorite":true,"id":3},{"name":"Kyleigh","image":"/assets/dalmation.png","description":"Chair Rubber Avon Account Car person Unbranded","isFavorite":true,"id":4},{"name":"Ryann","image":"/assets/chihuahua.avif","description":"Crew Books Music monitor integrated Garden bah","isFavorite":true,"id":5},{"name":"Maddison","image":"/assets/chihuahua.avif","description":"Associate invoice Diesel payment Frozen male Grocery Bespoke","isFavorite":false,"id":6},{"name":"Alanna","image":"/assets/blue-heeler.png","description":"distributed male deposit target gracefully","isFavorite":false,"id":7},{"name":"Howard","image":"/assets/cowardly.png","description":"synthesize caftan HEX ROI Rubber Honda Progressive","isFavorite":false,"id":8},{"name":"Brenden","image":"/assets/chihuahua.avif","description":"beatae Generic Savings tragic ivory Bugatti Beauty","isFavorite":true,"id":9},{"name":"Lucious","image":"/assets/blue-heeler.png","description":"Tuna silver tangible Solutions Northeast","isFavorite":true,"id":10},{"name":"Dale","image":"/assets/corgi.png","description":"East Representative Northeast Paradigm Loan","isFavorite":true,"id":11},{"name":"Esta","image":"/assets/corgi.png","description":"blah Northeast Loan quantify volt","isFavorite":true,"id":12},{"name":"Alexandrea","image":"/assets/blue-heeler.png","description":"Mountain SUV engineer Fitness Rapids","isFavorite":true,"id":13},{"name":"Verdie","image":"/assets/dalmation.png","description":"hence indexing so red Tools Realigned Tasty Agent","isFavorite":true,"id":14},{"name":"Amalia","image":"/assets/cowardly.png","description":"female Avon blue female Somalia","isFavorite":false,"id":15},{"name":"Edwina","image":"/assets/boxer.png","description":"toolset installation Diesel Pickup index indigo quantifying","isFavorite":false,"id":16},{"name":"Rory","image":"/assets/cowardly.png","description":"reboot violet ah Producer Falkland East networks Southeast","isFavorite":false,"id":17},{"name":"Adrienne","image":"/assets/chihuahua.avif","description":"Accounts boo tedious despite Hat and back","isFavorite":false,"id":18},{"name":"Tania","image":"/assets/corgi.png","description":"Strategist South bypassing Northwest Bedfordshire","isFavorite":false,"id":19}]}
+{
+  "dogs": [
+    {
+      "name": "Jamie",
+      "image": "/assets/dalmation.png",
+      "description": "World National Mouse Towels South Neutrois primary Gasoline",
+      "isFavorite": false,
+      "id": 0
+    },
+    {
+      "name": "Frederic",
+      "image": "/assets/blue-heeler.png",
+      "description": "pixel Elmer Sports Trans Hills",
+      "isFavorite": true,
+      "id": 2
+    },
+    {
+      "name": "Rosa",
+      "image": "/assets/cowardly.png",
+      "description": "Robert Egypt East East Iridium Latin Illinois embrace",
+      "isFavorite": false,
+      "id": 3
+    },
+    {
+      "name": "Kyleigh",
+      "image": "/assets/dalmation.png",
+      "description": "Chair Rubber Avon Account Car person Unbranded",
+      "isFavorite": false,
+      "id": 4
+    },
+    {
+      "name": "Ryann",
+      "image": "/assets/chihuahua.avif",
+      "description": "Crew Books Music monitor integrated Garden bah",
+      "isFavorite": true,
+      "id": 5
+    },
+    {
+      "name": "Alanna",
+      "image": "/assets/blue-heeler.png",
+      "description": "distributed male deposit target gracefully",
+      "isFavorite": true,
+      "id": 7
+    },
+    {
+      "name": "Howard",
+      "image": "/assets/cowardly.png",
+      "description": "synthesize caftan HEX ROI Rubber Honda Progressive",
+      "isFavorite": false,
+      "id": 8
+    },
+    {
+      "name": "Brenden",
+      "image": "/assets/chihuahua.avif",
+      "description": "beatae Generic Savings tragic ivory Bugatti Beauty",
+      "isFavorite": true,
+      "id": 9
+    },
+    {
+      "name": "Lucious",
+      "image": "/assets/blue-heeler.png",
+      "description": "Tuna silver tangible Solutions Northeast",
+      "isFavorite": false,
+      "id": 10
+    },
+    {
+      "name": "Dale",
+      "image": "/assets/corgi.png",
+      "description": "East Representative Northeast Paradigm Loan",
+      "isFavorite": true,
+      "id": 11
+    },
+    {
+      "name": "Esta",
+      "image": "/assets/corgi.png",
+      "description": "blah Northeast Loan quantify volt",
+      "isFavorite": true,
+      "id": 12
+    },
+    {
+      "name": "Alexandrea",
+      "image": "/assets/blue-heeler.png",
+      "description": "Mountain SUV engineer Fitness Rapids",
+      "isFavorite": true,
+      "id": 13
+    },
+    {
+      "name": "Verdie",
+      "image": "/assets/dalmation.png",
+      "description": "hence indexing so red Tools Realigned Tasty Agent",
+      "isFavorite": true,
+      "id": 14
+    },
+    {
+      "name": "Amalia",
+      "image": "/assets/cowardly.png",
+      "description": "female Avon blue female Somalia",
+      "isFavorite": false,
+      "id": 15
+    },
+    {
+      "name": "Edwina",
+      "image": "/assets/boxer.png",
+      "description": "toolset installation Diesel Pickup index indigo quantifying",
+      "isFavorite": false,
+      "id": 16
+    },
+    {
+      "name": "Rory",
+      "image": "/assets/cowardly.png",
+      "description": "reboot violet ah Producer Falkland East networks Southeast",
+      "isFavorite": false,
+      "id": 17
+    },
+    {
+      "name": "Adrienne",
+      "image": "/assets/chihuahua.avif",
+      "description": "Accounts boo tedious despite Hat and back",
+      "isFavorite": false,
+      "id": 18
+    },
+    {
+      "name": "Tania",
+      "image": "/assets/corgi.png",
+      "description": "Strategist South bypassing Northwest Bedfordshire",
+      "isFavorite": false,
+      "id": 19
+    }
+  ]
+}
