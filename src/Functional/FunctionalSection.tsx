@@ -1,5 +1,5 @@
 // you can use this type for react children if you so choose
-import { ReactNode, useEffect } from "react";
+import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { Dog } from "../types";
 import { ActiveTab } from "../types";
@@ -9,8 +9,6 @@ type FunctionalSectionProps = {
   allDogs: Dog[];
   activeTab: ActiveTab;
   setActiveTab: React.Dispatch<React.SetStateAction<ActiveTab>>;
-
-  setFilteredDogs: React.Dispatch<React.SetStateAction<Dog[]>>;
 };
 
 export const FunctionalSection: React.FC<FunctionalSectionProps> = ({
@@ -18,28 +16,15 @@ export const FunctionalSection: React.FC<FunctionalSectionProps> = ({
   allDogs,
   activeTab,
   setActiveTab,
-  setFilteredDogs,
 }: {
   children: ReactNode;
 
   allDogs: Dog[];
   activeTab: ActiveTab;
   setActiveTab: React.Dispatch<React.SetStateAction<ActiveTab>>;
-
-  setFilteredDogs: React.Dispatch<React.SetStateAction<Dog[]>>;
 }) => {
   const unFavDogs = allDogs.filter((dog: Dog) => dog.isFavorite === false);
   const favDogs = allDogs.filter((dog: Dog) => dog.isFavorite === true);
-
-  useEffect(() => {
-    let displayedDogs = allDogs;
-    displayedDogs = allDogs.filter((dog) => {
-      if (activeTab === "all-dogs") return true;
-      if (activeTab === "favorite-dogs") return dog.isFavorite;
-      if (activeTab === "unfavorite-dogs") return !dog.isFavorite;
-    });
-    setFilteredDogs(displayedDogs);
-  }, [activeTab, allDogs]);
 
   return (
     <section id="main-section">

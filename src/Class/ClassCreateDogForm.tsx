@@ -1,12 +1,13 @@
 import { Component } from "react";
 import { dogPictures } from "../dog-pictures";
 import { Dog } from "../types";
+import toast from "react-hot-toast";
 
 type State = {
   dogObj: Omit<Dog, "id">;
 };
 type CreateDogFormProps = {
-  createDog: (dogObj: Omit<Dog, "id">) => void;
+  createDog: (dogObj: Omit<Dog, "id">) => Promise<any>;
   isLoading: boolean;
 };
 
@@ -51,8 +52,10 @@ export class ClassCreateDogForm extends Component<CreateDogFormProps> {
         id="create-dog-form"
         onSubmit={(e) => {
           e.preventDefault();
-          this.props.createDog(dogObj);
-          this.resetForm();
+          this.props
+            .createDog(dogObj)
+            .then(() => this.resetForm())
+            .catch(() => toast.error("Something went wrong"));
         }}
       >
         <h4>Create a New Dog</h4>

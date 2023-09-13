@@ -9,7 +9,6 @@ import toast from "react-hot-toast";
 
 type State = {
   allDogs: Dog[];
-  filteredDogs: Dog[];
   isLoading: IsLoading;
   activeTab: ActiveTab;
 };
@@ -18,7 +17,6 @@ export class ClassApp extends Component<Record<string, never>, State> {
   state: State = {
     allDogs: [],
     isLoading: false,
-    filteredDogs: [],
     activeTab: "all-dogs",
   };
 
@@ -35,39 +33,43 @@ export class ClassApp extends Component<Record<string, never>, State> {
   }
   updateDog = (id: number, isFav: boolean) => {
     this.setState({ isLoading: true });
-    Requests.updateDog(id, isFav).finally(() => {
-      this.refetchData();
+    Requests.updateDog(id, isFav).then(() => {
+      this.refetchData().finally(() => this.setState({ isLoading: false }));
     });
   };
 
   deleteDog = (id: number) => {
     this.setState({ isLoading: true });
-    Requests.deleteDog(id).finally(() => {
-      this.refetchData();
+    Requests.deleteDog(id).then(() => {
+      this.refetchData().finally(() => this.setState({ isLoading: false }));
     });
   };
 
   createDog = (dog: Omit<Dog, "id">) => {
     this.setState({ isLoading: true });
-    Requests.postDog(dog)
+    return Requests.postDog(dog)
       .then(() => toast.success("A dog is created"))
-      .finally(() => this.refetchData());
+      .then(() => this.refetchData())
+      .finally(() => this.setState({ isLoading: false }));
   };
 
-  updateFilteredDogs = (newState: Dog[]) => {
-    this.setState({ filteredDogs: newState });
-  };
   updateActiveTab = (newState: ActiveTab) => {
     this.setState({ activeTab: newState });
   };
   render() {
-    const {
-      allDogs,
-
-      isLoading,
-      filteredDogs,
-      activeTab,
-    } = this.state;
+    const { allDogs, isLoading, activeTab } = this.state;
+    const filteredDogs = this.state.allDogs.filter((dog) => {
+      switch (this.state.activeTab) {
+        case "all-dogs":
+          return true;
+        case "favorite-dogs":
+          return dog.isFavorite;
+        case "unfavorite-dogs":
+          return !dog.isFavorite;
+        case "create-dog-form":
+          return false;
+      }
+    });
     return (
       <div className="App" style={{ backgroundColor: "goldenrod" }}>
         <header>
@@ -75,7 +77,6 @@ export class ClassApp extends Component<Record<string, never>, State> {
         </header>
         <ClassSection
           allDogs={allDogs}
-          updateFilteredDogs={this.updateFilteredDogs}
           activeTab={activeTab}
           updateActiveTab={this.updateActiveTab}
         >

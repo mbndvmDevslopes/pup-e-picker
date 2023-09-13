@@ -8,17 +8,10 @@
       "id": 0
     },
     {
-      "name": "Frederic",
-      "image": "/assets/blue-heeler.png",
-      "description": "pixel Elmer Sports Trans Hills",
-      "isFavorite": true,
-      "id": 2
-    },
-    {
       "name": "Rosa",
       "image": "/assets/cowardly.png",
       "description": "Robert Egypt East East Iridium Latin Illinois embrace",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 3
     },
     {
@@ -36,53 +29,11 @@
       "id": 5
     },
     {
-      "name": "Alanna",
-      "image": "/assets/blue-heeler.png",
-      "description": "distributed male deposit target gracefully",
-      "isFavorite": true,
-      "id": 7
-    },
-    {
-      "name": "Howard",
-      "image": "/assets/cowardly.png",
-      "description": "synthesize caftan HEX ROI Rubber Honda Progressive",
-      "isFavorite": false,
-      "id": 8
-    },
-    {
-      "name": "Brenden",
-      "image": "/assets/chihuahua.avif",
-      "description": "beatae Generic Savings tragic ivory Bugatti Beauty",
-      "isFavorite": true,
-      "id": 9
-    },
-    {
       "name": "Lucious",
       "image": "/assets/blue-heeler.png",
       "description": "Tuna silver tangible Solutions Northeast",
       "isFavorite": false,
       "id": 10
-    },
-    {
-      "name": "Dale",
-      "image": "/assets/corgi.png",
-      "description": "East Representative Northeast Paradigm Loan",
-      "isFavorite": true,
-      "id": 11
-    },
-    {
-      "name": "Esta",
-      "image": "/assets/corgi.png",
-      "description": "blah Northeast Loan quantify volt",
-      "isFavorite": true,
-      "id": 12
-    },
-    {
-      "name": "Alexandrea",
-      "image": "/assets/blue-heeler.png",
-      "description": "Mountain SUV engineer Fitness Rapids",
-      "isFavorite": true,
-      "id": 13
     },
     {
       "name": "Verdie",
@@ -95,36 +46,57 @@
       "name": "Amalia",
       "image": "/assets/cowardly.png",
       "description": "female Avon blue female Somalia",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 15
     },
     {
       "name": "Edwina",
       "image": "/assets/boxer.png",
       "description": "toolset installation Diesel Pickup index indigo quantifying",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 16
     },
     {
       "name": "Rory",
       "image": "/assets/cowardly.png",
       "description": "reboot violet ah Producer Falkland East networks Southeast",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 17
     },
     {
       "name": "Adrienne",
       "image": "/assets/chihuahua.avif",
       "description": "Accounts boo tedious despite Hat and back",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 18
     },
     {
       "name": "Tania",
       "image": "/assets/corgi.png",
       "description": "Strategist South bypassing Northwest Bedfordshire",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 19
+    },
+    {
+      "name": "test",
+      "description": "test",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": true,
+      "id": 20
+    },
+    {
+      "name": "heeler",
+      "description": "He doesn't heel",
+      "isFavorite": false,
+      "image": "/assets/blue-heeler.png",
+      "id": 21
+    },
+    {
+      "name": "blue dog",
+      "description": "He is brown",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": false,
+      "id": 22
     }
   ]
 }

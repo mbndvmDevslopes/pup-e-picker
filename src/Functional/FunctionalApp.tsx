@@ -10,9 +10,22 @@ import { ActiveTab } from "../types";
 
 export function FunctionalApp() {
   const [allDogs, setAllDogs] = useState<Dog[]>([]);
-  const [filteredDogs, setFilteredDogs] = useState<Dog[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [activeTab, setActiveTab] = useState<ActiveTab>("all-dogs");
+
+  //because I want to be a "cool kid"... :)"
+  const filteredDogs = allDogs.filter((dog) => {
+    switch (activeTab) {
+      case "all-dogs":
+        return true;
+      case "favorite-dogs":
+        return dog.isFavorite;
+      case "unfavorite-dogs":
+        return !dog.isFavorite;
+      case "create-dog-form":
+        return false;
+    }
+  });
 
   const refetchData = () => {
     setIsLoading(true);
@@ -31,25 +44,25 @@ export function FunctionalApp() {
 
   const updateDog = (id: number, isFav: boolean) => {
     setIsLoading(true);
-    Requests.updateDog(id, isFav).finally(() => {
-      refetchData();
-      setIsLoading(false);
+    Requests.updateDog(id, isFav).then(() => {
+      refetchData().finally(() => setIsLoading(false));
     });
   };
 
   const deleteDog = (id: number) => {
     setIsLoading(true);
-    Requests.deleteDog(id).finally(() => {
-      refetchData();
-      setIsLoading(false);
+    Requests.deleteDog(id).then(() => {
+      refetchData().finally(() => setIsLoading(false));
     });
   };
 
   const createDog = (dog: Omit<Dog, "id">) => {
     setIsLoading(true);
-    Requests.postDog(dog)
-      .finally(() => refetchData())
-      .then(() => toast.success("A dog is created"));
+    return Requests.postDog(dog)
+      .then(() => refetchData())
+      .then(() => toast.success("A dog is created"))
+
+      .finally(() => setIsLoading(false));
   };
 
   return (
@@ -59,7 +72,6 @@ export function FunctionalApp() {
       </header>
       <FunctionalSection
         allDogs={allDogs}
-        setFilteredDogs={setFilteredDogs}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
       >
